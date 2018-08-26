@@ -34,7 +34,6 @@ public class SpeedUpdates extends Service {
     private static final double EARTH_RADIUS = 6371000f;
     private static final String TAG = "SpeedUpdates";
     private static final int speedThreshold = 20;
-    private boolean isEnabled = false;
     double curTime = 0;
     double oldLat = 0.0;
     double oldLon = 0.0;

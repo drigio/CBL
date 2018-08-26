@@ -2,6 +2,7 @@ package com.drigio.labs.callblock;
 
 import android.app.NotificationManager;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
@@ -9,9 +10,11 @@ import android.content.res.Resources;
 import android.os.Build;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.MenuItem;
 import android.widget.Toast;
 
@@ -20,6 +23,7 @@ import java.util.Locale;
 public class LaunchActivity extends AppCompatActivity {
 
     //Define your class variables here
+    private static final String TAG = "LaunchActivity";
     TabLayout tabLayout;
     ViewPager viewPager;
     PageAdapter pageAdapter;
@@ -119,7 +123,6 @@ public class LaunchActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-
         // Check for DND permissions for API 24+
         NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && !nm.isNotificationPolicyAccessGranted()) {
@@ -127,6 +130,24 @@ public class LaunchActivity extends AppCompatActivity {
             Intent intent = new Intent(android.provider.Settings.ACTION_NOTIFICATION_POLICY_ACCESS_SETTINGS);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(intent);
+
+            //Warn user if Android API version 26 and 27 i.e Android Oreo for broken
+            if(Build.VERSION.SDK_INT == 26 || Build.VERSION.SDK_INT == 27) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setTitle("WARNING!");
+                builder.setMessage("You seem to be using Android Oreo. Automatic call ending may or may not work!");
+                builder.setPositiveButton("Okay", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                    }
+                });
+                AlertDialog dialog = builder.create();
+                dialog.setCanceledOnTouchOutside(false);
+                dialog.setCancelable(false);
+                dialog.show();
+                Log.d(TAG,"Found Oreo");
+            }
         }
     }
 }

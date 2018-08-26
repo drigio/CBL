@@ -9,16 +9,9 @@
     <string name="fragment_auto_reply_defaultAutoReplyText">Set Default \nAuto Reply</string>
     <string name="fragment_auto_reply_setAutoReplyButton">Change auto reply</string>
     <string name="fragment_call_logs_callLogText">Call Logs</string>
-    <string name="fragment_speed_limit_changeSpeedLimitButton">Change Speed Limit</string>
-    <string name="fragment_priority_calls_savePriorityContactsButton">Save Priority Contacts</string>
-    <string name="fragment_priority_calls_priorityContact1TextView">Priority Contact 1</string>
-    <string name="fragment_priority_calls_priorityContact2TextView">Priority Contact 2</string>
-    <string name="fragment_priority_calls_priorityContact3TextView">Priority Contact 3</string>
     <string name="drive_mode_tab">Drive Mode</string>
     <string name="auto_reply_tab">Auto Reply</string>
     <string name="call_logs_tab">Call Logs</string>
-    <string name="speed_limit_tab">Speed Limit</string>
-    <string name="priority_calls_tab">Priority Calls</string>
 
     <!--OnBoardingActivity Strings-->
     <string name="slide_1_title">Your Region, Your Language!</string>

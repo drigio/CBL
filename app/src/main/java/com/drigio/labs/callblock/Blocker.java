@@ -45,7 +45,7 @@ public class Blocker {
             //Set the isEnabled to true
             SharedPreferences.Editor editor = sharedPreferences.edit();
             editor.putBoolean("isEnabled",true);
-            editor.commit();
+            editor.apply();
         }else {
             //Toast.makeText(context,"Error: Drive Mode is Already Enabled",Toast.LENGTH_LONG).show();
             Log.d(TAG,"Error: Already Started Listening to incoming calls");
@@ -76,7 +76,7 @@ public class Blocker {
             //Set the isEnabled to false
             SharedPreferences.Editor editor = sharedPreferences.edit();
             editor.putBoolean("isEnabled",false);
-            editor.commit();
+            editor.apply();
         } else {
             //Toast.makeText(context,"Error: Drive Mode is Already Disabled",Toast.LENGTH_LONG).show();
             Log.d(TAG,"Error: Already Stopped Listening to incoming calls");

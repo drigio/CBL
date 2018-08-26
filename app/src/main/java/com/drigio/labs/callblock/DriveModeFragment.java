@@ -68,7 +68,7 @@ public class DriveModeFragment extends Fragment {
                 SharedPreferences sharedPreferences = context.getSharedPreferences(MainActivity.PREFNAME,Context.MODE_PRIVATE);
                 SharedPreferences.Editor editor = sharedPreferences.edit();
                 editor.putBoolean("isAutoEnabled",isAutoEnabled);
-                editor.commit();
+                editor.apply();
 
                 //Start/Stop Speed Updates Service
                 if(MainActivity.isAutoEnabled(context)) {

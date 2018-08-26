@@ -10,16 +10,9 @@
     <string name="fragment_auto_reply_defaultAutoReplyText">डिफ़ॉल्ट ऑटो उत्तर \nसेट करें</string>
     <string name="fragment_auto_reply_setAutoReplyButton">ऑटो उत्तर बदलें</string>
     <string name="fragment_call_logs_callLogText">कॉल लॉग</string>
-    <string name="fragment_speed_limit_changeSpeedLimitButton">गति सीमा बदलें</string>
-    <string name="fragment_priority_calls_savePriorityContactsButton">प्राथमिकता संपर्कों को जतन करे</string>
-    <string name="fragment_priority_calls_priorityContact1TextView">प्राथमिकता संपर्क 1</string>
-    <string name="fragment_priority_calls_priorityContact2TextView">प्राथमिकता संपर्क 2</string>
-    <string name="fragment_priority_calls_priorityContact3TextView">प्राथमिकता संपर्क 3</string>
     <string name="drive_mode_tab">ड्राइव मोड</string>
     <string name="auto_reply_tab">ऑटो उत्तर</string>
     <string name="call_logs_tab">कॉल लॉग</string>
-    <string name="speed_limit_tab">गति सीमा</string>
-    <string name="priority_calls_tab">प्राथमिकता कॉल</string>
 
     <!--OnBoardingActivity Strings-->
     <string name="slide_1_title">आपका क्षेत्र, आपकी भाषा!</string>

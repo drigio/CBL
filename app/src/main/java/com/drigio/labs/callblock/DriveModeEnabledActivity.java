@@ -26,7 +26,6 @@ public class DriveModeEnabledActivity extends AppCompatActivity {
     //Declare all the class variables here
     Button disableDriveMode;
     private static final String TAG = "DMEnabledActivity"; //Tag to identify in the Logs
-    DevicePolicyManager devicePolicyManager;
     ComponentName DPM;
 
     @Override
@@ -56,10 +55,6 @@ public class DriveModeEnabledActivity extends AppCompatActivity {
                 //Give a notification stating the number of calls that were blocked and
                 //On Clicking the notification take them to the CallsBlocked Activity
                 showCallLogs();
-                //Unpin the app
-                /*if(devicePolicyManager.isDeviceOwnerApp(getPackageName())) {
-                    stopLockTask();
-                }*/
                 //Return to the Main Screen
                 Intent mainScreen = new Intent(DriveModeEnabledActivity.this,LaunchActivity.class);
                 startActivity(mainScreen);
@@ -80,7 +75,7 @@ public class DriveModeEnabledActivity extends AppCompatActivity {
                 SharedPreferences sharedPreferences = getSharedPreferences(MainActivity.PREFNAME,MODE_PRIVATE);
                 SharedPreferences.Editor editor = sharedPreferences.edit();
                 editor.putBoolean("isAutoEnabled",false);
-                editor.commit();
+                editor.apply();
             }
 
             //Start DriveModeEnabled Service

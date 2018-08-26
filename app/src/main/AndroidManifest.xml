@@ -13,6 +13,10 @@
     <uses-permission android:name="android.permission.RECEIVE_SMS" />
     <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.ANSWER_PHONE_CALLS" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.READ_CALL_LOG" />
+    <uses-permission android:name="android.permission.MODIFY_PHONE_STATE" />
 
     <uses-feature
         android:name="android.hardware.sensor.accelerometer"
@@ -31,9 +35,8 @@
 
         <receiver
             android:name=".IncomingCall"
-            android:enabled="false"
-            android:exported="true">
-            <intent-filter android:priority="2147483647">
+            android:enabled="false">
+            <intent-filter>
                 <action android:name="android.intent.action.PHONE_STATE" />
             </intent-filter>
         </receiver>
@@ -70,7 +73,7 @@
         </activity>
 
         <activity android:name=".OnBoardingActivity" />
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".MainActivity" />
     </application>
 
 </manifest>

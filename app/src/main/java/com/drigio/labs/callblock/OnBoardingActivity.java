@@ -1,6 +1,7 @@
 package com.drigio.labs.callblock;
 
 import android.Manifest;
+import android.app.Dialog;
 import android.app.NotificationManager;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -171,7 +172,7 @@ public class OnBoardingActivity extends TutorialActivity {
         SharedPreferences sharedPreferences = this.getSharedPreferences(MainActivity.PREFNAME,MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putBoolean("FirstTimeLaunch",false);
-        editor.commit();
+        editor.apply();
     }
 
     private void chooseLanguage() {
@@ -189,7 +190,6 @@ public class OnBoardingActivity extends TutorialActivity {
                             Intent i = getBaseContext().getPackageManager()
                                     .getLaunchIntentForPackage( getBaseContext().getPackageName() );
                             i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                            getSharedPreferences(MainActivity.PREFNAME,MODE_PRIVATE).edit().putString("speedLimitPass","pass").commit();
                             finish();
                             startActivity(i);
                             break;
@@ -197,7 +197,6 @@ public class OnBoardingActivity extends TutorialActivity {
                             Intent it = getBaseContext().getPackageManager()
                                     .getLaunchIntentForPackage( getBaseContext().getPackageName() );
                             it.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                            getSharedPreferences(MainActivity.PREFNAME,MODE_PRIVATE).edit().putString("speedLimitPass","pass").commit();
                             finish();
                             startActivity(it);
                             break;
@@ -205,7 +204,6 @@ public class OnBoardingActivity extends TutorialActivity {
                             Intent im = getBaseContext().getPackageManager()
                                     .getLaunchIntentForPackage( getBaseContext().getPackageName() );
                             im.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                            getSharedPreferences(MainActivity.PREFNAME,MODE_PRIVATE).edit().putString("speedLimitPass","pass").commit();
                             finish();
                             startActivity(im);
                             break;

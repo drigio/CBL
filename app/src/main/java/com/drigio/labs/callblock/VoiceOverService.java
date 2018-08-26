@@ -16,9 +16,7 @@ public class VoiceOverService extends Service {
     //Declare all your class variables here
     private static final String PRIORITY_VOICE_OVER = "priority";
     private static final String TAG = "VoiceOverService";
-    protected static final String SPEED_LIMIT_EXCEEDED = "speedlimit";
     protected static final String SPEED_FLUCTS = "speedFlucts";
-    protected static final String PRIORITY_CONTACT = "priority";
     protected static final String DISTRESS = "distress";
     MediaPlayer player;
     Bundle bundle;
@@ -43,10 +41,6 @@ public class VoiceOverService extends Service {
                 case PRIORITY_VOICE_OVER :
                     //Ask media player to play Priority Voice over
                     playPriority();
-                    break;
-                case SPEED_LIMIT_EXCEEDED :
-                    //Ask media player to play Speed Limit Voice over
-                    playSpeedLimit();
                     break;
                 case SPEED_FLUCTS :
                     //Ask media player to play Speed Limit Voice over
