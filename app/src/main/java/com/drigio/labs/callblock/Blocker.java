@@ -1,7 +1,9 @@
 package com.drigio.labs.callblock;
 
-//Contains the interface to simplify the work of starting and stopping listening to
-//all the incoming calls and messages.
+/**
+ * Class to simplify the work of starting and stopping listening to
+ * all the incoming calls and messages.
+ */
 
 import android.content.ComponentName;
 import android.content.Context;
@@ -10,14 +12,17 @@ import android.content.pm.PackageManager;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.drigio.labs.callblock.BroadcastRecievers.EmergencySMS;
+import com.drigio.labs.callblock.BroadcastRecievers.IncomingCall;
+
 public class Blocker {
 
     //Declare all the class variables here
     private static final String TAG = "Blocker";
-    protected static final String PREFNAME = "Blocker";
+    public static final String PREFNAME = "Blocker";
 
     //The Default Constructor
-    public Blocker() {
+    private Blocker() {
 
     }
 
@@ -28,7 +33,7 @@ public class Blocker {
         SharedPreferences sharedPreferences = context.getSharedPreferences(PREFNAME,Context.MODE_PRIVATE);
         boolean isEnabled = sharedPreferences.getBoolean("isEnabled",false);
 
-        if(isEnabled == false) {
+        if(!isEnabled) {
             //For Calls Blocking
             ComponentName receiver = new ComponentName(context, IncomingCall.class);
             PackageManager pm = context.getPackageManager();
@@ -47,7 +52,6 @@ public class Blocker {
             editor.putBoolean("isEnabled",true);
             editor.apply();
         }else {
-            //Toast.makeText(context,"Error: Drive Mode is Already Enabled",Toast.LENGTH_LONG).show();
             Log.d(TAG,"Error: Already Started Listening to incoming calls");
         }
 
@@ -59,7 +63,7 @@ public class Blocker {
         SharedPreferences sharedPreferences = context.getSharedPreferences(PREFNAME,Context.MODE_PRIVATE);
         boolean isEnabled = sharedPreferences.getBoolean("isEnabled",false);
 
-        if(isEnabled == true) {
+        if(isEnabled) {
             //For Calls Blocking
             ComponentName receiver = new ComponentName(context, IncomingCall.class);
             PackageManager pm = context.getPackageManager();
@@ -78,7 +82,6 @@ public class Blocker {
             editor.putBoolean("isEnabled",false);
             editor.apply();
         } else {
-            //Toast.makeText(context,"Error: Drive Mode is Already Disabled",Toast.LENGTH_LONG).show();
             Log.d(TAG,"Error: Already Stopped Listening to incoming calls");
         }
 

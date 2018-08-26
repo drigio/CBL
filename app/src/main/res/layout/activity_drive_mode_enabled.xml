@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.drigio.labs.callblock.DriveModeEnabledActivity"
+    tools:context="com.drigio.labs.callblock.Activities.DriveModeEnabledActivity"
     android:orientation="vertical"
     android:gravity="center"
     android:padding="20dp"
@@ -17,8 +17,8 @@
         android:layout_marginStart="12dp"
         android:text="@string/activity_drive_mode_enabled_enabled_text"
         android:textAlignment="center"
-        android:textSize="32sp"
-        android:textColor="@color/white"/>
+        android:textColor="@color/white"
+        android:textSize="32sp" />
 
     <pl.bclogic.pulsator4droid.library.PulsatorLayout
         android:id="@+id/pulsator"

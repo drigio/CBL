@@ -5,7 +5,6 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.SEND_SMS" />
@@ -16,7 +15,6 @@
     <uses-permission android:name="android.permission.ANSWER_PHONE_CALLS" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="android.permission.READ_CALL_LOG" />
-    <uses-permission android:name="android.permission.MODIFY_PHONE_STATE" />
 
     <uses-feature
         android:name="android.hardware.sensor.accelerometer"
@@ -30,11 +28,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".DriveModeEnabledActivity"
+            android:name=".Activities.DriveModeEnabledActivity"
             android:theme="@style/Theme.AppCompat.Translucent" />
 
         <receiver
-            android:name=".IncomingCall"
+            android:name=".BroadcastRecievers.IncomingCall"
             android:enabled="false">
             <intent-filter>
                 <action android:name="android.intent.action.PHONE_STATE" />
@@ -42,16 +40,17 @@
         </receiver>
 
         <service
-            android:name=".SpeedUpdates"
+            android:name=".Services.SpeedUpdates"
             android:enabled="true"
             android:exported="true" />
+
         <service
-            android:name=".DriveModeEnabledService"
+            android:name=".Services.DriveModeEnabledService"
             android:enabled="true"
             android:exported="true" />
 
         <receiver
-            android:name=".EmergencySMS"
+            android:name=".BroadcastRecievers.EmergencySMS"
             android:enabled="false"
             android:exported="true">
             <intent-filter android:priority="2147483647">
@@ -60,11 +59,11 @@
         </receiver>
 
         <service
-            android:name=".VoiceOverService"
+            android:name=".Services.VoiceOverService"
             android:enabled="true"
             android:exported="true" />
 
-        <activity android:name=".LaunchActivity">
+        <activity android:name=".Activities.LaunchActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -72,8 +71,8 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".OnBoardingActivity" />
-        <activity android:name=".MainActivity" />
+        <activity android:name=".Activities.OnBoardingActivity" />
+        <activity android:name=".UserSettings" />
     </application>
 
 </manifest>
