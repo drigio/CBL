@@ -50,13 +50,23 @@ public class OnBoardingActivity extends TutorialActivity {
 
 
             //Calls and Messages Blocking
-            addFragment(new PermissionStep.Builder().setTitle(getString(R.string.slide_2_title))
-                    .setContent(getString(R.string.slide_2_content))
-                    .setBackgroundColor(Color.parseColor("#57606F")) // int background color
-                    .setDrawable(R.drawable.block_calls) // int top drawable
-                    .setSummary("")
-                    .setPermissions(new String[]{Manifest.permission.READ_PHONE_STATE,Manifest.permission.CALL_PHONE})
-                    .build());
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) { //ANSWER_PHONE_CALLS is available only in > API 26
+                addFragment(new PermissionStep.Builder().setTitle(getString(R.string.slide_2_title))
+                        .setContent(getString(R.string.slide_2_content))
+                        .setBackgroundColor(Color.parseColor("#57606F")) // int background color
+                        .setDrawable(R.drawable.block_calls) // int top drawable
+                        .setSummary("")
+                        .setPermissions(new String[]{Manifest.permission.READ_PHONE_STATE,Manifest.permission.CALL_PHONE,Manifest.permission.READ_CALL_LOG,Manifest.permission.ANSWER_PHONE_CALLS})
+                        .build());
+            } else {
+                addFragment(new PermissionStep.Builder().setTitle(getString(R.string.slide_2_title))
+                        .setContent(getString(R.string.slide_2_content))
+                        .setBackgroundColor(Color.parseColor("#57606F")) // int background color
+                        .setDrawable(R.drawable.block_calls) // int top drawable
+                        .setSummary("")
+                        .setPermissions(new String[]{Manifest.permission.READ_PHONE_STATE,Manifest.permission.CALL_PHONE,Manifest.permission.READ_CALL_LOG})
+                        .build());
+            }
 
 
             //Auto Enable the Drive Mode
@@ -65,7 +75,7 @@ public class OnBoardingActivity extends TutorialActivity {
                     .setBackgroundColor(Color.parseColor("#57606F")) // int background color
                     .setDrawable(R.drawable.autoenable2) // int top drawable
                     .setSummary("")
-                    .setPermissions(new String[]{Manifest.permission.ACCESS_COARSE_LOCATION,Manifest.permission.ACCESS_FINE_LOCATION,Manifest.permission.INTERNET})
+                    .setPermissions(new String[]{Manifest.permission.ACCESS_COARSE_LOCATION,Manifest.permission.ACCESS_FINE_LOCATION})
                     .build());
 
             //Notifications After the Ride
